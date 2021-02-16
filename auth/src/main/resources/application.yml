@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: AuthService
+  datasource:
+    url: jdbc:mysql://mysql-standalone:3306/test?serverTimezone=UTC
+    username: java
+    password: haslo
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect:
+          org.hibernate.dialect.MySQL5Dialect
+
+
+security:
+  jwt:
+    token:
+      expire-length: 3600000
+
+server:
+  port: 8081
+  eureka:
+    client:
+      serviceUrl:
+        defaultZone: ${EUREKA_URI:http://eurekaserver:8761/eureka}
+    instance:
+      preferIpAddress: true

@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: BeersService
+  datasource:
+    url: jdbc:mysql://mysql-standalone:3306/test?serverTimezone=UTC
+    username: java
+    password: haslo
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+            hibernate:
+                    dialect:
+                            org.hibernate.dialect.MySQL5Dialect
+
+server:
+  port: 8082
+  eureka:
+    client:
+      serviceUrl:
+        defaultZone: ${EUREKA_URI:http://eurekaserver:8761/eureka}
+    instance:
+      preferIpAddress: true
